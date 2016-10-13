@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noImplicitAny": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "removeComments": false,
+        "sourceMap": true,
+        "target": "es5",
+        "outDir": "./dist"
+    },
+    "files": [
+        "dist/index.ts",
+        "typings/index.d.ts"
+    ],
+    "exclude": [
+      "node_modules",
+      ".build",
+      "src",
+      "dist",
+      "index.ts"
+    ],
+    "compileOnSave": false,
+    "buildOnSave": false,
+    "atom": { "rewriteTsconfig": false }
+}

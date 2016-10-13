@@ -1,0 +1,20 @@
+<div class="minesweeper">
+    <div class="scoreboard" [style.width]="(size * 1.9) + 'em'">
+        <div class="score"><div class="text">{{display_time}}</div></div>
+        <div class="restart" (click)="newGame()">
+            <i class="material-icons">
+                {{ status==='win' ? 'sentiment_very_satisfied' : (status==='check' ? 'sentiment_neutral' : (status==='loss' ? 'sentiment_very_dissatisfied' : ('sentiment_satisfied'))) }}
+            </i>
+        </div>
+        <div class="mines"><div class="text">{{mines - flagged}}</div></div>
+    </div>
+    <div class="grid" [style.width]="(size * 1.85) + 'em'">
+        <div class="square" *ngFor="let sq of grid_squares" (mousedown)="checkDown()" (mouseup)="checkUp()" (click)="activate(sq)" (contextmenu)="check(sq, $event)">
+            <div *ngIf="!sq.mine&&sq.number > 0" class="layer number" [style.color]="colours[sq.number]">{{sq.number}}</div>
+            <div *ngIf="sq.mine" [style.background-color]="status==='loss'?'#E53935':''" class="layer mine"><i class="material-icons">brightness_low</i></div>
+            <div *ngIf="!sq.visible" class="layer cover"></div>
+            <div *ngIf="sq.flagged==='yes'" class="layer flag"><i class="material-icons">flag</i></div>
+            <div *ngIf="sq.flagged==='maybe'" class="layer unknown"><i class="material-icons">help</i></div>
+        </div>
+    </div>
+</div>

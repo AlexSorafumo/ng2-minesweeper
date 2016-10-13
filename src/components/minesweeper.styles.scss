@@ -1,0 +1,88 @@
+
+div.minesweeper {
+    padding: 1.0em;
+    display: inline-block;
+    box-shadow: 0 0.1em 0.2em 0.1em rgba(0,0,0,0.1);
+    background-color: #FFFFFF;
+    border-radius: 0.3em;
+    & .scoreboard {
+        height: 3.0em;
+        box-shadow: 0 0.1em 0.2em 0.1em rgba(0,0,0,0.1);
+        padding: 0.25em;
+        border-radius: 0.2em;
+        overflow: hidden;
+        display: flex;
+        margin-bottom: 0.25em;
+        & .score, & .mines {
+            position: relative;
+            flex-grow: 1;
+            height: 1.25em;
+            min-width: 40%;
+            border-radius: 0.1em;
+            background-color: rgba(0,0,0,0.2);
+            font-size: 2.0em;
+            padding: 0.125em;
+            & .text {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+        & .restart {
+            width: 2.0em;
+            height: 2.0em;
+            box-shadow: 0 0.1em 0.2em 0.1em rgba(0,0,0,0.1);
+            margin: 0.25em 0.5em;
+            cursor: pointer;
+            border-radius: 0.1em;
+            padding: 0.25em;
+            & i {
+                font-size: 1.5em;
+            }
+            &:hover {
+                box-shadow: 0 0.1em 0.2em 0.1em rgba(0,0,0,0.2);
+            }
+        }
+    }
+
+    & .grid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        & .square {
+            position: relative;
+            height: 1.5em;
+            width: 1.5em;
+            margin: 0.15em;
+            border-radius: 0.1em;
+            box-shadow: inset 0 0.1em 0.2em 0.1em rgba(0,0,0,0.05);
+            user-select: none;
+            cursor: pointer;
+            & .layer {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                overflow: hidden;
+                &.mine {
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 0.1em;
+                    box-shadow: inset 0 0.1em 0.2em 0.1em rgba(0,0,0,0.05);
+                }
+                &.cover {
+                    height: 100%;
+                    width: 100%;
+                    background-color: #FFFFFF;
+                    box-shadow: 0 0.1em 0.2em 0.1em rgba(0,0,0,0.1);
+                    border-radius: 0.1em;
+                    &:hover {
+                        box-shadow: 0 0.1em 0.2em 0.1em rgba(0,0,0,0.2);
+                    }
+                }
+            }
+        }
+    }
+}
